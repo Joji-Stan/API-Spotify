@@ -78,7 +78,61 @@ export class StatistiquesComponent implements OnInit {
     }
   })
    }
+   if (duree=="medium_term") {
+     this.service.getTopArtist6Months()
+    .subscribe((data: any) => {
+      for (let i = 0; i < data.items.length; i++) {
+        let info = {
+          title: data.items[i].name,
+          image: data.items[i].images[1].url,
+          link: data.items[i].external_urls.spotify
+        }
+        console.log(info.title);
+      }
+    })
 
+
+    this.service.getTopTrack6Months()
+ .subscribe((data: any) => {
+   console.log(data);
+   for (let i = 0; i < data.items.length; i++) {
+     let info = {
+       title: data.items[i].name,
+       artist: data.items[i].artists[0].name,
+       image: data.items[i].album.images[1].url,
+       link: data.items[i].external_urls.spotify
+     }
+   }
+ })
+   }
+
+   if (duree=="long_term") {
+     this.service.getTopArtistAllTime()
+    .subscribe((data: any) => {
+      for (let i = 0; i < data.items.length; i++) {
+        let info = {
+          title: data.items[i].name,
+          image: data.items[i].images[1].url,
+          link: data.items[i].external_urls.spotify
+        }
+        console.log(info.title);
+      }
+    })
+
+
+    this.service.getTopTrackAllTime()
+ .subscribe((data: any) => {
+   console.log(data);
+   for (let i = 0; i < data.items.length; i++) {
+     let info = {
+       title: data.items[i].name,
+       artist: data.items[i].artists[0].name,
+       image: data.items[i].album.images[1].url,
+       link: data.items[i].external_urls.spotify
+     }
+   }
+ })
+   }
 }
     }
 
