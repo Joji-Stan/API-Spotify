@@ -10,9 +10,9 @@ export class MenuComponent implements OnInit {
   //Déclaration des variables
   activeAccueil:boolean
   activeSpotify:boolean
-  activeLyrics:boolean
+  activeRecherche:boolean
   activeStatistiques:boolean
-  activeConcert:boolean
+  activeConcerts:boolean
   activeContact:boolean
   activeAPropos:boolean
   isConnected:boolean
@@ -27,9 +27,9 @@ export class MenuComponent implements OnInit {
     this.activeAccueil = true;
     this.isConnected = false;
     this.activeSpotify = false;
-    this.activeLyrics = false;
+    this.activeRecherche = false;
     this.activeStatistiques = false;
-    this.activeConcert = false;
+    this.activeConcerts = false;
     this.activeContact = false;
     this.activeAPropos = false;
   }
@@ -47,10 +47,10 @@ export class MenuComponent implements OnInit {
         this.activerSpotify_Event();
         break;
       case "lyrics":
-        this.activerLyrics_Event();
+        this.activerRecherche_Event();
         break;
       case "concert":
-        this.activerConcert_Event();
+        this.activerConcerts_Event();
         break;
       case "contact":
         this.activerContact_Event();
@@ -67,9 +67,9 @@ export class MenuComponent implements OnInit {
   activerAccueil() : void{
     this.activeAccueil = true;
     this.activeSpotify = false;
-    this.activeLyrics = false;
+    this.activeRecherche = false;
     this.activeStatistiques = false;
-    this.activeConcert = false;
+    this.activeConcerts = false;
     this.activeContact = false;
     this.activeAPropos = false;
     this.changementAccueil.emit("accueil");
@@ -79,9 +79,9 @@ export class MenuComponent implements OnInit {
   activerAccueil_Event() : void{
     this.activeAccueil = true;
     this.activeSpotify = false;
-    this.activeLyrics = false;
+    this.activeRecherche = false;
     this.activeStatistiques = false;
-    this.activeConcert = false;
+    this.activeConcerts = false;
     this.activeContact = false;
     this.activeAPropos = false;
   }
@@ -90,9 +90,9 @@ export class MenuComponent implements OnInit {
   activerSpotify() : void{
     this.activeAccueil = false;
     this.activeSpotify = true;
-    this.activeLyrics = false;
+    this.activeRecherche = false;
     this.activeStatistiques = false;
-    this.activeConcert = false;
+    this.activeConcerts = false;
     this.activeContact = false;
     this.activeAPropos = false;
     this.changementAccueil.emit("spotify");
@@ -102,32 +102,32 @@ export class MenuComponent implements OnInit {
   activerSpotify_Event() : void{
     this.activeAccueil = false;
     this.activeSpotify = true;
-    this.activeLyrics = false;
+    this.activeRecherche = false;
     this.activeStatistiques = false;
-    this.activeConcert = false;
+    this.activeConcerts = false;
     this.activeContact = false;
     this.activeAPropos = false;
   }
 
   //Lance l'affichage de la section Lyrics
-  activerLyrics() : void {
+  activerRecherche() : void {
     this.activeAccueil = false;
     this.activeSpotify = false;
-    this.activeLyrics = true;
+    this.activeRecherche = true;
     this.activeStatistiques = false;
-    this.activeConcert = false;
+    this.activeConcerts = false;
     this.activeContact = false;
     this.activeAPropos = false;
     this.changementAccueil.emit("lyrics");
   }
 
   //Activation de la section Lyrics dans le menu
-  activerLyrics_Event() : void {
+  activerRecherche_Event() : void {
     this.activeAccueil = false;
     this.activeSpotify = false;
-    this.activeLyrics = true;
+    this.activeRecherche = true;
     this.activeStatistiques = false;
-    this.activeConcert = false;
+    this.activeConcerts = false;
     this.activeContact = false;
     this.activeAPropos = false;
   }
@@ -136,9 +136,9 @@ export class MenuComponent implements OnInit {
   activerStatistiques() : void {
     this.activeAccueil = false;
     this.activeSpotify = false;
-    this.activeLyrics = false;
+    this.activeRecherche = false;
     this.activeStatistiques = true;
-    this.activeConcert = false;
+    this.activeConcerts = false;
     this.activeContact = false;
     this.activeAPropos = false;
     this.changementAccueil.emit("infos");
@@ -148,32 +148,32 @@ export class MenuComponent implements OnInit {
   activerStatistiques_Event() : void {
     this.activeAccueil = false;
     this.activeSpotify = false;
-    this.activeLyrics = false;
+    this.activeRecherche = false;
     this.activeStatistiques = true;
-    this.activeConcert = false;
+    this.activeConcerts = false;
     this.activeContact = false;
     this.activeAPropos = false;
   }
 
   //Lance l'affichage de la section Concert
-  activerConcert() : void {
+  activerConcerts() : void {
     this.activeAccueil = false;
     this.activeSpotify = false;
-    this.activeLyrics = false;
+    this.activeRecherche = false;
     this.activeStatistiques = false;
-    this.activeConcert = true;
+    this.activeConcerts = true;
     this.activeContact = false;
     this.activeAPropos = false;
     this.changementAccueil.emit("concert");
   }
 
   //Activation de la section Concert dans le menu
-  activerConcert_Event() : void {
+  activerConcerts_Event() : void {
     this.activeAccueil = false;
     this.activeSpotify = false;
-    this.activeLyrics = false;
+    this.activeRecherche = false;
     this.activeStatistiques = false;
-    this.activeConcert = true;
+    this.activeConcerts = true;
     this.activeContact = false;
     this.activeAPropos = false;
   }
@@ -182,9 +182,9 @@ export class MenuComponent implements OnInit {
   activerContact() : void {
     this.activeAccueil = false;
     this.activeSpotify = false;
-    this.activeLyrics = false;
+    this.activeRecherche = false;
     this.activeStatistiques = false;
-    this.activeConcert = false;
+    this.activeConcerts = false;
     this.activeContact = true;
     this.activeAPropos = false;
     this.changementAccueil.emit("contact");
@@ -194,9 +194,9 @@ export class MenuComponent implements OnInit {
   activerContact_Event() : void {
     this.activeAccueil = false;
     this.activeSpotify = false;
-    this.activeLyrics = false;
+    this.activeRecherche = false;
     this.activeStatistiques = false;
-    this.activeConcert = false;
+    this.activeConcerts = false;
     this.activeContact = true;
     this.activeAPropos = false;
   }
@@ -205,9 +205,9 @@ export class MenuComponent implements OnInit {
   activerAPropos() : void {
     this.activeAccueil = false;
     this.activeSpotify = false;
-    this.activeLyrics = false;
+    this.activeRecherche = false;
     this.activeStatistiques = false;
-    this.activeConcert = false;
+    this.activeConcerts = false;
     this.activeContact = false;
     this.activeAPropos = true;
     this.changementAccueil.emit("apropos");
@@ -217,9 +217,9 @@ export class MenuComponent implements OnInit {
   activerAPropos_Event() : void {
     this.activeAccueil = false;
     this.activeSpotify = false;
-    this.activeLyrics = false;
+    this.activeRecherche = false;
     this.activeStatistiques = false;
-    this.activeConcert = false;
+    this.activeConcerts = false;
     this.activeContact = false;
     this.activeAPropos = true;
   }

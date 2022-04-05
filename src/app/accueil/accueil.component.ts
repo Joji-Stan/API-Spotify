@@ -1,5 +1,7 @@
 import { Component, HostListener, Input, OnInit, Output, EventEmitter } from '@angular/core';
 
+import * as $ from "jquery";
+
 
 
 
@@ -14,13 +16,13 @@ export class AccueilComponent implements OnInit {
     les informations à afficher à l'utilisateur */
  isVisibleAccueil: boolean;
  isVisibleSpotify: boolean;
- isVisibleLyrics: boolean ;
- isVisibleConcert: boolean ;
+ isVisibleRecherche: boolean ;
+ isVisibleConcerts: boolean ;
  isVisibleStatistiques: boolean ;
  isVisibleContact: boolean ;
  isVisibleAPropos: boolean ;
  /* Le token de connexion du client Spotify */
- token: string | undefined;
+ token: string;
  sParam: string | undefined;
  raw_search_query: string | undefined;
 
@@ -36,13 +38,13 @@ export class AccueilComponent implements OnInit {
    /* Au lancement de la SPA on choisi d'afficher seulement l'accueil */
    this.isVisibleAccueil = true;
    this.isVisibleSpotify = false;
-   this.isVisibleLyrics = false;
+   this.isVisibleRecherche = false;
    this.isConnected = false;
    this.isVisibleStatistiques = false;
-   this.isVisibleConcert = false;
+   this.isVisibleConcerts = false;
    this.isVisibleContact = false;
    this.isVisibleAPropos = false;
-  console.log("ACCUEIL-COMPONENT Token = " + this.token);
+  console.log("ACCUEIL-COMPONENT Token = " + (this.token || '').toString());
  }
 
  /**
@@ -64,10 +66,10 @@ export class AccueilComponent implements OnInit {
        this.accederSpotify_Event();
        break;
      case "lyrics":
-       this.accederLyrics_Event();
+       this.accederRecherche_Event();
        break;
-     case "concert":
-       this.accederConcert_Event();
+     case "concerts":
+       this.accederConcerts_Event();
        break;
      case "contact":
        this.accederContact_Event();
@@ -90,9 +92,9 @@ export class AccueilComponent implements OnInit {
   */
  hide_all(): void{
    this.isVisibleSpotify = false;
-   this.isVisibleLyrics = false;
+   this.isVisibleRecherche = false;
    this.isVisibleStatistiques = false;
-   this.isVisibleConcert = false;
+   this.isVisibleConcerts = false;
    this.isVisibleContact = false;
    this.isVisibleAPropos = false;
  }
@@ -116,25 +118,25 @@ export class AccueilComponent implements OnInit {
  /**
   * Permet d'accéder aux infos et de transmettre l'information au menu de navigation
   */
- accederInfos(): void{
+ accederStatistiques(): void{
    this.hide()
    this.isVisibleStatistiques = true;
-   this.changementMenu.emit("infos");
+   this.changementMenu.emit("statistiques");
  }
  /**
   * Permet d'accéder aux concerts et de transmettre l'information au menu de navigation
   */
- accederConcert(): void{
+ accederConcerts(): void{
    this.hide()
-   this.isVisibleConcert = true;
-   this.changementMenu.emit("concert");
+   this.isVisibleConcerts = true;
+   this.changementMenu.emit("concerts");
  }
  /**
   * Permet d'accéder aux lyrics et de transmettre l'information au menu de navigation
   */
  accederLyrics(): void{
    this.hide()
-   this.isVisibleLyrics = true;
+   this.isVisibleRecherche = true;
    this.changementMenu.emit("lyrics");
  }
  /**
@@ -169,16 +171,16 @@ export class AccueilComponent implements OnInit {
  /**
   * Action quand réception d'un message du menu de navigation : accès aux concerts
   */
- accederConcert_Event(): void{
+ accederConcerts_Event(): void{
    this.hide()
-   this.isVisibleConcert = true;
+   this.isVisibleConcerts = true;
  }
  /**
   * Action quand réception d'un message du menu de navigation : accès aux lyrics
   */
- accederLyrics_Event(): void{
+ accederRecherche_Event(): void{
    this.hide()
-   this.isVisibleLyrics = true;
+   this.isVisibleRecherche = true;
  }
  /**
   * Action quand réception d'un message du menu de navigation : accès au formulaire de contact
@@ -201,6 +203,10 @@ export class AccueilComponent implements OnInit {
  accederApropos_Event(): void{
    this.hide()
    this.isVisibleAPropos = true;
+ }
+
+ afficherToken(): void {
+   console.log("ACCUEIL-COMPONENT Token = " + this.token);
  }
  /**
   * Permet de se connecter à l'API Spotify
@@ -227,7 +233,6 @@ export class AccueilComponent implements OnInit {
 
      /* BLOC CONNEXION */
      let client_id = '26497d6a4fa64c8e94d149daa47ca735';
-
      /* URL du site pour la redirection apres connexion ( lien encoder via le site ci-dessous) : https://www.url-encode-decode.com/ */
 
      var redirect_uri = 'http%3A%2F%2Flocalhost%3A4200%2F';
@@ -235,7 +240,6 @@ export class AccueilComponent implements OnInit {
      if(accessToken == null || accessToken == "" || accessToken == undefined){
         window.location.replace(redirect);
       }
-     window.location.replace(redirect);
      this.token = (accessToken || '').toString();
 
      /* On est maintenant connecte a Spotify (on peut donc afficher la page Spotify au lieu de Youtube */
@@ -244,6 +248,11 @@ export class AccueilComponent implements OnInit {
 
      console.log("Le token d'acces est : " + this.token);
 
+   }
+
+   logoutSpotify (): void {
+     const url = 'https://accounts.spotify.com/en/logout'
+     const spotifyLogoutWindow = window.open(url, 'Spotify Logout', 'width=700,height=500,top=40,left=40')
    }
 
 

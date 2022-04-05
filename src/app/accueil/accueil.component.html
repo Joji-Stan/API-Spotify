@@ -1,11 +1,22 @@
-  <span class="mask bg-gradient-dark opacity-5"> </span>
+<div *ngIf="isVisibleAccueil">
+<span class="mask bg-gradient-dark opacity-5"> </span>
   <div class="row text-center py-5 bg-dark vh-100">
     <h1 style="text-align:center" class=" text-white"> Easify. </h1>
-  <div class="col-12 mx-1 my-1">
-    <button (click)=loginSpotify(); type="button" class="btn btn-success bg-sucess btn-lg w-auto me-3"> Se connecter</button>
+  <div class="col-12 mx-1 my-1 bg-dark">
+    <button (click)=loginSpotify(); type="button" class="btn btn-success bg-sucess btn-lg w-auto me-3" > Se connecter</button>
+    <button (click)=logoutSpotify(); type="button" class="btn btn-danger bg-sucess btn-lg w-auto me-3" > Se déconnecter</button>
 
+  </div>
+  </div>
+  </div>
+  <div class="row text-center py-5 bg-dark vh-100">
     <form *ngIf="isVisibleStatistiques">
-      <app-statistiques></app-statistiques>
+      <app-statistiques  [token]="token" [isConnected]="isConnected"></app-statistiques>
+      <!-- [token]="token" [isConnected]="isConnected" -->
+    </form>
+
+    <form *ngIf="isVisibleConcerts">
+      <app-concerts></app-concerts>
     </form>
 
     <form *ngIf="isVisibleContact">
@@ -15,63 +26,8 @@
     <form *ngIf="isVisibleAPropos">
       <app-apropos></app-apropos>
     </form>
-      <div *ngIf="isConnected"> [isConnected]="isConnected"</div>
+    <!-- Bloc d'affichage de SPOTIFY -->
+<form *ngIf="isVisibleRecherche">
+    <app-recherche [token]="token" [isConnected]="isConnected"></app-recherche>
+</form>
   </div>
-  </div>
-
-<!--
-<h1 style="text-align:center" class="mt-4 text-white">Bienvenue sur Easify </h1>
-<!-- Button Spotify-->
-<!--
-<div class="row text-center py-5 mt-3">
-<div class="col-12 mx-1">
-  <button type="button" class="btn btn-success bg-sucess btn-lg w-auto me-3">Se connecter</button>
-</div>
--->
-<!--
-</div>
-  <div class="container-fluid px-4">
-      <h1 style="text-align:center" class="mt-4 text-white">Bienvenue sur Easify </h1>
-      <div class="row py-5">
-          <div class="col-xl-6 col-md-6">
-              <div class="card bg-success text-white mb-4">
-                  <div class="card-body">Spotify</div>
-                  <div class="card-footer d-flex align-items-center justify-content-between">
-                      <a class="small text-white stretched-link" href="#">Details</a>
-                      <div class="small text-white"><i class="fas fa-angle-right"></i></div>
-                  </div>
-              </div>
-          </div>
-          <div class="col-xl-6 col-md-6">
-              <div class="card bg-success2 text-white mb-4">
-                  <div class="card-body">Paroles</div>
-                  <div class="card-footer d-flex align-items-center justify-content-between">
-                      <a class="small text-white stretched-link" href="#">Details</a>
-                      <div class="small text-white"><i class="fas fa-angle-right"></i></div>
-                  </div>
-              </div>
-          </div>
-          <div class="col-xl-6 col-md-6">
-              <div class="card bg-success2 text-white mb-4">
-                  <div class="card-body">Playlist</div>
-                  <div class="card-footer d-flex align-items-center justify-content-between">
-                      <a class="small text-white stretched-link" href="#">Details</a>
-                      <div class="small text-white"><i class="fas fa-angle-right"></i></div>
-                  </div>
-              </div>
-          </div>
-          <div class="col-xl-6 col-md-6">
-                <div class="card bg-success text-white mb-4">
-                  <div class="card-body">Concerts</div>
-                  <div class="card-footer d-flex align-items-center justify-content-between">
-                      <a class="small text-white stretched-link" href="#">Details</a>
-                      <div class="small text-white"><i class="fas fa-angle-right"></i></div>
-                  </div>
-              </div>
-          </div>
-      </div>
-  </div>
-
-  <div class="card-footer d-flex align-items-center justify-content-between">
-</div>
--->

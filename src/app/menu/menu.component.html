@@ -47,8 +47,8 @@
     </li>
 
 
-
-    <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
+    <li *ngIf="activeRecherche" class="active">
+    <a (click)=activerRecherche(); class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
         <div class="sb-nav-link-icon">
           <i class="fas fa-columns"></i>
         </div>
@@ -57,6 +57,20 @@
           <i class="fas fa-angle-down"></i>
         </div>
     </a>
+    </li>
+
+    <li *ngIf="!activeRecherche">
+    <a (click)=activerRecherche(); class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
+        <div class="sb-nav-link-icon">
+          <i class="fas fa-columns"></i>
+        </div>
+        <p>Recherche</p>
+        <div class="sb-sidenav-collapse-arrow">
+          <i class="fas fa-angle-down"></i>
+        </div>
+    </a>
+    </li>
+
     <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
         <div class="sb-nav-link-icon">
           <i class="fas fa-book-open"></i>
@@ -66,7 +80,9 @@
           <i class="fas fa-angle-down"></i>
         </div>
     </a>
-    <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
+
+    <li *ngIf="activeConcerts" class="active">
+    <a (click)=activerConcerts(); class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
         <div class="sb-nav-link-icon">
           <i class="fas fa-book-open"></i>
         </div>
@@ -75,6 +91,19 @@
           <i class="fas fa-angle-down"></i>
         </div>
     </a>
+    </li>
+
+    <li *ngIf="!activeConcerts">
+    <a (click)=activerConcerts(); class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
+        <div class="sb-nav-link-icon">
+          <i class="fas fa-book-open"></i>
+        </div>
+        <p>Concerts</p>
+        <div class="sb-sidenav-collapse-arrow">
+          <i class="fas fa-angle-down"></i>
+        </div>
+    </a>
+    </li>
 
     <div class="sb-sidenav-menu-heading">Compléments</div>
 

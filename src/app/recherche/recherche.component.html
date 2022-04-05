@@ -1,29 +1,44 @@
 <div class="col-lg-2 mx-2">
-    <div class="card text-center y-2 mt-4 bg-dark" style="width: 74rem;">
-        <!-- Titre du formulaire de contact -->
+    <div class="card text-center y-1 mt-0 bg-dark" style="width: 74rem;">
+
         <div class="card-header">
-            <h2 style="text-align:center" class="card-title text-white">Contactez-nous</h2>
+            <h2 class="card-title text-white">Recherche</h2>
           </div>
         <!-- Formulaire de contact -->
         <div class="card-body">
             <!-- Utilisation de Formcarry pour traiter les messages -->
-            <form action="https://formcarry.com/s/WIhklkE1-LY" method="POST">
                 <!-- Nom de l'utilisateur -->
-                <h4 class='text-white'> Votre nom : </h4>
-                <input type="text" name="name" id="name" style="background-color:grey;">
-                <br><br>
-                <!-- Email de l'utilisateur -->
-                <h4 class='text-white'>Votre email : </h4>
-                <input type="email" name="email" id="email" style="background-color:grey;">
-                <br><br>
-                <!-- Message de l'utilisateur -->
-                <h4 class='text-white'>Votre message : </h4>
-                <textarea name="message" class="textarea" cols="50" rows="4" style="background-color:grey;"></textarea>
-                <br><br>
+                <h4 class='text-white'> <div id="nom_user">  </div> </h4>
+                <h4  class='text-white'> Artiste :<span class="tabulation"></span> Titres :</h4>
+                <div class="inline-div">
+                <input #artiste class="inline-input" type="text" name="name" id="name" style="background-color:#aedd94;">
+                <input #titre class="inline-input" type="text" name="titres" id="titres" style="background-color:#aedd94;">
+                </div>
+                <br>
                 <!-- Bouton pour envoyer le formulaire -->
-                <button class="btn btn-success animation-on-hover" type="submit" value=“Envoyer”>Envoyer</button>
-            </form>
-        </div>
-    </div>
+                <button class="btn btn-secondary animation-on-hover mx-5" type="button" value=“Envoyer” (click)="rechercheSons(artiste.value,titre.value);">Rechercher</button>
+                <br><br>
+                <!-- Relié au javascript permettant de charger les résultats de la requête -->
+               <div class="container">
+                 <div class="row">
+                   <div id="song_1" class="col"></div>
+                   <div id="song_2" class="col"></div>
+                   <div id="song_3" class="col"></div>
 
-</div>
+                 </div>
+                 <div class="row">
+                   <div id="song_4" class="col"></div>
+                   <div id="song_5" class="col"></div>
+                   <div id="song_6" class="col"></div>
+
+                 </div>
+                 <div class="row">
+                   <div id="song_7" class="col"></div>
+                   <div id="song_8" class="col"></div>
+                   <div id="song_9" class="col"></div>
+
+                 </div>
+               </div>
+             </div>
+            </div>
+        </div>

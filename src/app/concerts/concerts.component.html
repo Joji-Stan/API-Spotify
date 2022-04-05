@@ -1,0 +1,35 @@
+<!-- Affichage d'une image d'un concert -->
+<div class="card bg-dark text-white">
+  <img class="card-img" src="../../../assets/img/concert.png" alt="Card image">
+</div>
+
+<!-- Affichage des concerts (intitulés, dates et liens pour réserver les tickets)-->
+<div class="card ">
+  <!-- Titre Concerts-->
+  <div class="card-header">
+    <h4 class="card-title"> Concerts</h4>
+  </div>
+  <div class="card-body">
+      <!-- Tableau pour les concerts -->
+      <table class="table tablesorter">
+        <thead>
+            <tr>
+                <!-- Nom de la colonne pour afficher le numéro -->
+                <th class="text-center">#</th>
+
+                <!-- Nom de la colonne pour afficher le nom de l'évènement -->
+                <th>Nom de l'évènement</th>
+
+                <!-- Nom de la colonne pour afficher la date -->
+                <th>Date</th>
+
+                <!-- Nom de la colonne pour afficher les boutons de réservations de boutons-->
+                <th class="text-right">Cliquez sur le bouton pour réserver votre billet !</th>
+            </tr>
+        </thead>
+        <!-- Zone pour afficher les données des concerts -->
+        <tbody class="tableauConcert" id ="tableauConcert">
+        </tbody>
+      </table>
+  </div>
+</div>
