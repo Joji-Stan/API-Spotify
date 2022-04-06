@@ -34,7 +34,10 @@
             "scripts": [
             	"node_modules/jquery/dist/jquery.min.js",
             	"node_modules/bootstrap/dist/js/bootstrap.min.js",
-              "node_modules/spotify-web-api-js/src/spotify-web-api.js"
+              "node_modules/spotify-web-api-js/src/spotify-web-api.js",
+              "src/assets/js/MusicStoryAPI.class.js"
+
+
             	]
           },
           "configurations": {

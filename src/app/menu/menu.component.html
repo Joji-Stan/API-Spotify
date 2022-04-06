@@ -1,145 +1,142 @@
 <ul class="nav">
     <div class="sb-sidenav-menu-heading">Bienvenue sur Easify</div>
     <!-- Affichage de l'accueil-->
-
-  <li *ngIf="activeAccueil" class="active ">
-    <a (click)=activerAccueil(); class="nav-link">
-        <div class="sb-nav-link-icon">
-          <i class="fas fa-tachometer-alt"></i>
-        </div>
-      <p>Accueil</p>
-    </a>
-  </li>
-
-  <li *ngIf="!activeAccueil">
-  <a (click)=activerAccueil(); class="nav-link">
-      <div class="sb-nav-link-icon">
-        <i class="fas fa-tachometer-alt"></i>
-      </div>
-    <p>Accueil</p>
-  </a>
-</li>
-
+    <li *ngIf="activeAccueil" class="active ">
+        <a (click)=activerAccueil(); class="nav-link">
+            <div class="sb-nav-link-icon">
+                <i class="fas fa-tachometer-alt"></i>
+            </div>
+            <p>Accueil</p>
+        </a>
+    </li>
+    <li *ngIf="!activeAccueil">
+        <a (click)=activerAccueil(); class="nav-link">
+            <div class="sb-nav-link-icon">
+                <i class="fas fa-tachometer-alt"></i>
+            </div>
+            <p>Accueil</p>
+        </a>
+    </li>
     <div class="sb-sidenav-menu-heading">Interface</div>
-
     <li *ngIf="activeStatistiques" class="active">
-    <a (click)=activerStatistiques(); class="nav-link collapsed" href="#"#212529 data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
-        <div class="sb-nav-link-icon">
-          <i class="fas fa-columns"></i>
-        </div>
-      <p>Statistiques</p>
-        <div class="sb-sidenav-collapse-arrow">
-          <i class="fas fa-angle-down"></i>
-        </div>
-    </a>
+        <a (click)=activerStatistiques(); class="nav-link collapsed" href="#" #212529 data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
+            <div class="sb-nav-link-icon">
+                <i class="fas fa-columns"></i>
+            </div>
+            <p>Statistiques</p>
+            <div class="sb-sidenav-collapse-arrow">
+                <i class="fas fa-angle-down"></i>
+            </div>
+        </a>
     </li>
-
     <li *ngIf="!activeStatistiques">
-    <a (click)=activerStatistiques(); class="nav-link collapsed" href="#"#212529 data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
-        <div class="sb-nav-link-icon">
-          <i class="fas fa-columns"></i>
-        </div>
-      <p>Statistiques</p>
-        <div class="sb-sidenav-collapse-arrow">
-          <i class="fas fa-angle-down"></i>
-        </div>
-    </a>
+        <a (click)=activerStatistiques(); class="nav-link collapsed" href="#" #212529 data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
+            <div class="sb-nav-link-icon">
+                <i class="fas fa-columns"></i>
+            </div>
+            <p>Statistiques</p>
+            <div class="sb-sidenav-collapse-arrow">
+                <i class="fas fa-angle-down"></i>
+            </div>
+        </a>
     </li>
-
-
     <li *ngIf="activeRecherche" class="active">
-    <a (click)=activerRecherche(); class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
-        <div class="sb-nav-link-icon">
-          <i class="fas fa-columns"></i>
-        </div>
-        <p>Recherche</p>
-        <div class="sb-sidenav-collapse-arrow">
-          <i class="fas fa-angle-down"></i>
-        </div>
-    </a>
+        <a (click)=activerRecherche(); class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
+            <div class="sb-nav-link-icon">
+                <i class="fas fa-columns"></i>
+            </div>
+            <p>Recherche</p>
+            <div class="sb-sidenav-collapse-arrow">
+                <i class="fas fa-angle-down"></i>
+            </div>
+        </a>
     </li>
-
     <li *ngIf="!activeRecherche">
-    <a (click)=activerRecherche(); class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
-        <div class="sb-nav-link-icon">
-          <i class="fas fa-columns"></i>
-        </div>
-        <p>Recherche</p>
-        <div class="sb-sidenav-collapse-arrow">
-          <i class="fas fa-angle-down"></i>
-        </div>
-    </a>
+        <a (click)=activerRecherche(); class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
+            <div class="sb-nav-link-icon">
+                <i class="fas fa-columns"></i>
+            </div>
+            <p>Recherche</p>
+            <div class="sb-sidenav-collapse-arrow">
+                <i class="fas fa-angle-down"></i>
+            </div>
+        </a>
     </li>
-
-    <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
-        <div class="sb-nav-link-icon">
-          <i class="fas fa-book-open"></i>
-        </div>
-        <p>Playlist</p>
-        <div class="sb-sidenav-collapse-arrow">
-          <i class="fas fa-angle-down"></i>
-        </div>
-    </a>
-
+    <li *ngIf="activePlaylist" class="active">
+        <a (click)=activerPlaylist(); class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
+            <div class="sb-nav-link-icon">
+                <i class="fas fa-book-open"></i>
+            </div>
+            <p>Playlist</p>
+            <div class="sb-sidenav-collapse-arrow">
+                <i class="fas fa-angle-down"></i>
+            </div>
+        </a>
+    </li>
+    <li *ngIf="!activePlaylist">
+        <a (click)=activerPlaylist(); class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
+            <div class="sb-nav-link-icon">
+                <i class="fas fa-book-open"></i>
+            </div>
+            <p>Playlist</p>
+            <div class="sb-sidenav-collapse-arrow">
+                <i class="fas fa-angle-down"></i>
+            </div>
+        </a>
+    </li>
     <li *ngIf="activeConcerts" class="active">
-    <a (click)=activerConcerts(); class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
-        <div class="sb-nav-link-icon">
-          <i class="fas fa-book-open"></i>
-        </div>
-        <p>Concerts</p>
-        <div class="sb-sidenav-collapse-arrow">
-          <i class="fas fa-angle-down"></i>
-        </div>
-    </a>
+        <a (click)=activerConcerts(); class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
+            <div class="sb-nav-link-icon">
+                <i class="fas fa-book-open"></i>
+            </div>
+            <p>Concerts</p>
+            <div class="sb-sidenav-collapse-arrow">
+                <i class="fas fa-angle-down"></i>
+            </div>
+        </a>
     </li>
-
     <li *ngIf="!activeConcerts">
-    <a (click)=activerConcerts(); class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
-        <div class="sb-nav-link-icon">
-          <i class="fas fa-book-open"></i>
-        </div>
-        <p>Concerts</p>
-        <div class="sb-sidenav-collapse-arrow">
-          <i class="fas fa-angle-down"></i>
-        </div>
-    </a>
+        <a (click)=activerConcerts(); class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
+            <div class="sb-nav-link-icon">
+                <i class="fas fa-book-open"></i>
+            </div>
+            <p>Concerts</p>
+            <div class="sb-sidenav-collapse-arrow">
+                <i class="fas fa-angle-down"></i>
+            </div>
+        </a>
     </li>
-
     <div class="sb-sidenav-menu-heading">Compléments</div>
-
     <li *ngIf="activerAPropos" class="active">
-    <a (click)=activerAPropos(); class="nav-link">
-        <div class="sb-nav-link-icon">
-          <i class="fas fa-chart-area"></i>
-        </div>
-        <p>A propos</p>
-    </a>
+        <a (click)=activerAPropos(); class="nav-link">
+            <div class="sb-nav-link-icon">
+                <i class="fas fa-chart-area"></i>
+            </div>
+            <p>A propos</p>
+        </a>
     </li>
-
     <li *ngIf="!activerAPropos">
-    <a (click)=activerAPropos(); class="nav-link">
-        <div class="sb-nav-link-icon">
-          <i class="fas fa-chart-area"></i>
-        </div>
-        <p>A propos</p>
-    </a>
+        <a (click)=activerAPropos(); class="nav-link">
+            <div class="sb-nav-link-icon">
+                <i class="fas fa-chart-area"></i>
+            </div>
+            <p>A propos</p>
+        </a>
     </li>
-
     <li *ngIf="activeContact" class="active">
-    <a (click)=activerContact(); class="nav-link">
-        <div class="sb-nav-link-icon">
-          <i class="fas fa-table"></i>
-        </div>
-        <p> Contact </p>
-    </a>
+        <a (click)=activerContact(); class="nav-link">
+            <div class="sb-nav-link-icon">
+                <i class="fas fa-table"></i>
+            </div>
+            <p> Contact </p>
+        </a>
     </li>
-
     <li *ngIf="!activeContact">
-    <a (click)=activerContact(); class="nav-link">
-        <div class="sb-nav-link-icon">
-          <i class="fas fa-table"></i>
-        </div>
-        <p> Contact </p>
-    </a>
+        <a (click)=activerContact(); class="nav-link">
+            <div class="sb-nav-link-icon">
+                <i class="fas fa-table"></i>
+            </div>
+            <p> Contact </p>
+        </a>
     </li>
 </ul>

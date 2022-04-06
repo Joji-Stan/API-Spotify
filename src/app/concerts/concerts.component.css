@@ -1,0 +1,23 @@
+.carte-infos{
+    background-color: #d67972;
+    background: #ce584f;
+    background: -webkit-linear-gradient(0deg, #ce584f 0%,#d67972 100%);
+    background: -o-linear-gradient(0deg, #ce584f 0%,#d67972 100%);
+    background: -moz-linear-gradient(0deg, #ce584f 0%,#d67972 100%);
+    background: linear-gradient(0deg, #ce584f 0%, #d67972 100%);
+}
+
+.contenu-carte{
+    color: black;
+    font-size: 15px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.titre-carte {
+    font-size: 30px;
+    color: black;
+    text-decoration: underline;
+    text-align: center;
+    font-weight: bold;
+}

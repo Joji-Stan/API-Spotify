@@ -13,6 +13,7 @@ import { RechercheComponent } from './recherche/recherche.component';
 import { AproposComponent } from './apropos/apropos.component';
 import { SpotifyComponent } from './spotify/spotify.component';
 import { ConcertsComponent } from './concerts/concerts.component';
+import { PlaylistComponent } from './playlist/playlist.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { ConcertsComponent } from './concerts/concerts.component';
     RechercheComponent,
     AproposComponent,
     SpotifyComponent,
-    ConcertsComponent
+    ConcertsComponent,
+    PlaylistComponent
   ],
   imports: [
     BrowserModule,

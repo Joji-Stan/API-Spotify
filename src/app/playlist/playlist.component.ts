@@ -20,11 +20,11 @@ const s = new Spotify();
 let spotify = new SpotifyWebApi();
 
 @Component({
-  selector: "app-recherche",
-  templateUrl: "./recherche.component.html",
-  styleUrls: ["./recherche.component.css"],
+  selector: "app-playlist",
+  templateUrl: "./playlist.component.html",
+  styleUrls: ["./playlist.component.css"],
 })
-export class RechercheComponent implements OnInit {
+export class PlaylistComponent implements OnInit {
   @Input() token: string;
   @Input() isConnected: boolean;
 
@@ -40,16 +40,18 @@ export class RechercheComponent implements OnInit {
         var elem = document.getElementById("nom_user");
         if (typeof elem !== "undefined" && elem !== null) {
           elem.innerHTML = "Connecté en tant que : " + data.display_name;
+          let user_id = data.id;
+          console.log(data);
         }
       })
+
       .catch(function (err) {
         console.log("Something went wrong:", err.message);
       });
   }
-  rechercheSons(artiste: string, titre: string): void {
-
+  genereSons(artiste: string, titre: string, genre: string): void {
     $.ajax({
-      url: `https://api.spotify.com/v1/search?q=${artiste}+${titre}&type=track`,
+      url: `https://api.spotify.com/v1/search?q=${artiste}+${titre}&genre=${genre}&type=track`,
       type: "GET",
       headers: {
         Authorization: "Bearer " + this.token,
@@ -61,6 +63,7 @@ export class RechercheComponent implements OnInit {
         while (count < max_songs && count < num_of_tracks) {
 
           var id = data.tracks.items[count].id;
+        
           spotify.getTrack(id).then(
             function (data) {
               console.log(data);
@@ -76,6 +79,32 @@ export class RechercheComponent implements OnInit {
           parent_div.html(iframe);
           count++;
         }
+      },
+    });
+  }
+  creePlaylist(): void {
+    var jsonData = {
+      name: "yeees",
+      public: false,
+    };
+    let user_id;
+    spotify.getMe().then(function (data) {
+      user_id = data.id;
+    });
+    $.ajax({
+      url: `https://api.spotify.com/v1/users/${user_id}/playlists`, //  mon user id : 21hbuqifxyv2oqduruc2plpoi
+      type: "POST",
+      data: jsonData,
+      dataType: "json",
+      headers: {
+        Authorization: "Bearer " + this.token,
+      },
+      contentType: "application/json",
+      success: function (result) {
+        console.log("Woo! :)");
+      },
+      error: function () {
+        console.log("Error! :(");
       },
     });
   }

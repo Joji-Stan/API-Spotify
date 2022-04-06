@@ -19,9 +19,13 @@
 
   .tabulation {
   display: inline-block;
-  margin-left: 140px;
+  margin-left: 180px;
   }
 
+  .tabulation2 {
+  display: inline-block;
+  margin-left: 70px;
+  }
   .col {
     display: inline-block;
   }
@@ -35,10 +39,4 @@
     background: #fff;
     border-radius: 40px;
     padding: 10px;
-  }
-
-  .btn-primary{
-      background: #fff;
-      color: #CB356B;
-      border: none;
   }

@@ -1,32 +1,37 @@
-import { Component, OnInit, HostListener, Output, EventEmitter } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  HostListener,
+  Output,
+  EventEmitter,
+} from "@angular/core";
 
 @Component({
-  selector: 'app-menu',
-  templateUrl: './menu.component.html',
-  styleUrls: ['./menu.component.css']
+  selector: "app-menu",
+  templateUrl: "./menu.component.html",
+  styleUrls: ["./menu.component.css"],
 })
 export class MenuComponent implements OnInit {
-
   //Déclaration des variables
-  activeAccueil:boolean
-  activeSpotify:boolean
-  activeRecherche:boolean
-  activeStatistiques:boolean
-  activeConcerts:boolean
-  activeContact:boolean
-  activeAPropos:boolean
-  isConnected:boolean
+  activeAccueil: boolean;
+  activePlaylist: boolean;
+  activeRecherche: boolean;
+  activeStatistiques: boolean;
+  activeConcerts: boolean;
+  activeContact: boolean;
+  activeAPropos: boolean;
+  isConnected: boolean;
 
   //Envoie d'une information
   @Output() changementAccueil = new EventEmitter();
 
-  constructor() { }
+  constructor() {}
 
   //Initialisation des variables
   ngOnInit(): void {
     this.activeAccueil = true;
     this.isConnected = false;
-    this.activeSpotify = false;
+    this.activePlaylist = false;
     this.activeRecherche = false;
     this.activeStatistiques = false;
     this.activeConcerts = false;
@@ -35,7 +40,7 @@ export class MenuComponent implements OnInit {
   }
 
   //Fonction permettant de mettre en évidence la session active au niveau du menu
-  changementMenu(dir : string): void{
+  changementMenu(dir: string): void {
     switch (dir) {
       case "accueil":
         this.activerAccueil_Event();
@@ -43,8 +48,8 @@ export class MenuComponent implements OnInit {
       case "recherche":
         this.activerStatistiques_Event();
         break;
-      case "spotify":
-        this.activerSpotify_Event();
+      case "playlist":
+        this.activerplaylist_Event();
         break;
       case "lyrics":
         this.activerRecherche_Event();
@@ -64,9 +69,9 @@ export class MenuComponent implements OnInit {
   }
 
   //Lance l'affichage de la section Accueil
-  activerAccueil() : void{
+  activerAccueil(): void {
     this.activeAccueil = true;
-    this.activeSpotify = false;
+    this.activePlaylist = false;
     this.activeRecherche = false;
     this.activeStatistiques = false;
     this.activeConcerts = false;
@@ -76,9 +81,9 @@ export class MenuComponent implements OnInit {
   }
 
   //Activation de la section Accueil dans le menu
-  activerAccueil_Event() : void{
+  activerAccueil_Event(): void {
     this.activeAccueil = true;
-    this.activeSpotify = false;
+    this.activePlaylist = false;
     this.activeRecherche = false;
     this.activeStatistiques = false;
     this.activeConcerts = false;
@@ -86,22 +91,21 @@ export class MenuComponent implements OnInit {
     this.activeAPropos = false;
   }
 
-  //Lance l'affichage de la section Spotify-YouTube
-  activerSpotify() : void{
+  activerPlaylist(): void {
     this.activeAccueil = false;
-    this.activeSpotify = true;
+    this.activePlaylist = true;
     this.activeRecherche = false;
     this.activeStatistiques = false;
     this.activeConcerts = false;
     this.activeContact = false;
     this.activeAPropos = false;
-    this.changementAccueil.emit("spotify");
+    this.changementAccueil.emit("playlist");
   }
 
   //Activation de la section Spotyfy-YouTube dans le menu
-  activerSpotify_Event() : void{
+  activerplaylist_Event(): void {
     this.activeAccueil = false;
-    this.activeSpotify = true;
+    this.activePlaylist = true;
     this.activeRecherche = false;
     this.activeStatistiques = false;
     this.activeConcerts = false;
@@ -110,9 +114,9 @@ export class MenuComponent implements OnInit {
   }
 
   //Lance l'affichage de la section Lyrics
-  activerRecherche() : void {
+  activerRecherche(): void {
     this.activeAccueil = false;
-    this.activeSpotify = false;
+    this.activePlaylist = false;
     this.activeRecherche = true;
     this.activeStatistiques = false;
     this.activeConcerts = false;
@@ -122,9 +126,9 @@ export class MenuComponent implements OnInit {
   }
 
   //Activation de la section Lyrics dans le menu
-  activerRecherche_Event() : void {
+  activerRecherche_Event(): void {
     this.activeAccueil = false;
-    this.activeSpotify = false;
+    this.activePlaylist = false;
     this.activeRecherche = true;
     this.activeStatistiques = false;
     this.activeConcerts = false;
@@ -133,9 +137,9 @@ export class MenuComponent implements OnInit {
   }
 
   //Lance l'affichage de la section Infos
-  activerStatistiques() : void {
+  activerStatistiques(): void {
     this.activeAccueil = false;
-    this.activeSpotify = false;
+    this.activePlaylist = false;
     this.activeRecherche = false;
     this.activeStatistiques = true;
     this.activeConcerts = false;
@@ -145,9 +149,9 @@ export class MenuComponent implements OnInit {
   }
 
   //Activation de la section Infos dans le menu
-  activerStatistiques_Event() : void {
+  activerStatistiques_Event(): void {
     this.activeAccueil = false;
-    this.activeSpotify = false;
+    this.activePlaylist = false;
     this.activeRecherche = false;
     this.activeStatistiques = true;
     this.activeConcerts = false;
@@ -156,9 +160,9 @@ export class MenuComponent implements OnInit {
   }
 
   //Lance l'affichage de la section Concert
-  activerConcerts() : void {
+  activerConcerts(): void {
     this.activeAccueil = false;
-    this.activeSpotify = false;
+    this.activePlaylist = false;
     this.activeRecherche = false;
     this.activeStatistiques = false;
     this.activeConcerts = true;
@@ -168,9 +172,9 @@ export class MenuComponent implements OnInit {
   }
 
   //Activation de la section Concert dans le menu
-  activerConcerts_Event() : void {
+  activerConcerts_Event(): void {
     this.activeAccueil = false;
-    this.activeSpotify = false;
+    this.activePlaylist = false;
     this.activeRecherche = false;
     this.activeStatistiques = false;
     this.activeConcerts = true;
@@ -179,9 +183,9 @@ export class MenuComponent implements OnInit {
   }
 
   //Lance l'affichage de la section Contact
-  activerContact() : void {
+  activerContact(): void {
     this.activeAccueil = false;
-    this.activeSpotify = false;
+    this.activePlaylist = false;
     this.activeRecherche = false;
     this.activeStatistiques = false;
     this.activeConcerts = false;
@@ -191,9 +195,9 @@ export class MenuComponent implements OnInit {
   }
 
   //Activation de la section Contact dans le menu
-  activerContact_Event() : void {
+  activerContact_Event(): void {
     this.activeAccueil = false;
-    this.activeSpotify = false;
+    this.activePlaylist = false;
     this.activeRecherche = false;
     this.activeStatistiques = false;
     this.activeConcerts = false;
@@ -202,9 +206,9 @@ export class MenuComponent implements OnInit {
   }
 
   //Lance l'affichage de la section A propos
-  activerAPropos() : void {
+  activerAPropos(): void {
     this.activeAccueil = false;
-    this.activeSpotify = false;
+    this.activePlaylist = false;
     this.activeRecherche = false;
     this.activeStatistiques = false;
     this.activeConcerts = false;
@@ -214,9 +218,9 @@ export class MenuComponent implements OnInit {
   }
 
   //Activation de la section A propos dans le menu
-  activerAPropos_Event() : void {
+  activerAPropos_Event(): void {
     this.activeAccueil = false;
-    this.activeSpotify = false;
+    this.activePlaylist = false;
     this.activeRecherche = false;
     this.activeStatistiques = false;
     this.activeConcerts = false;
@@ -224,9 +228,7 @@ export class MenuComponent implements OnInit {
     this.activeAPropos = true;
   }
 
-
-  // Affiche Spotify à la place de Youtube dans le menu
-  activerConnected_Event() : void {
+  activerConnected_Event(): void {
     this.isConnected = true;
   }
 }

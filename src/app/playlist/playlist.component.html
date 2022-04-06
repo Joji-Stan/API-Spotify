@@ -1,7 +1,7 @@
 <div class="col-lg-2 mx-2">
     <div class="card text-center y-1 mt-0 bg-dark" style="width: 74rem;">
         <div class="card-header">
-            <h2 class="card-title text-white">Recherche</h2>
+            <h2 class="card-title text-white">Playlist</h2>
         </div>
         <!-- Formulaire de contact -->
         <div class="card-body">
@@ -10,14 +10,16 @@
             <h4 class='text-white'>
                 <div id="nom_user"></div>
             </h4>
-            <h4 class='text-white'> Artiste : <span class="tabulation"></span> Titres : </h4>
+            <h4 class='text-white'>ㅤㅤㅤArtiste :ㅤㅤㅤㅤㅤㅤㅤTitres :ㅤㅤㅤㅤㅤㅤㅤGenre :ㅤㅤㅤㅤTaille :</h4>
             <div class="inline-div">
                 <input #artiste class="inline-input" type="text" name="name" id="name" style="background-color:#aedd94;">
                 <input #titre class="inline-input" type="text" name="titres" id="titres" style="background-color:#aedd94;">
+                <input #genre class="inline-input" type="text" name="genre" id="genre" style="background-color:#aedd94;">
+                <input #taille class="inline-input" type="number" name="taille" id="taille" min="1" max="50" style="background-color:#aedd94;">
             </div>
             <br>
             <!-- Bouton pour envoyer le formulaire -->
-            <button class="btn btn-secondary animation-on-hover mx-5" type="button" value=“Envoyer” (click)="rechercheSons(artiste.value,titre.value);">Rechercher</button>
+            <button class="btn btn-secondary animation-on-hover mx-5" type="button" value=“Envoyer” (click)="genereSons(artiste.value,titre.value,genre.value);">Generer</button>
             <br>
             <br>
             <!-- Relié au javascript permettant de charger les résultats de la requête -->
@@ -38,6 +40,11 @@
                     <div id="song_9" class="col"></div>
                 </div>
             </div>
+            <br>
+            <br>
+            <button class="btn btn-secondary animation-on-hover mx-5" type="button" value=“Envoyer” (click)="creePlaylist();">Crée Playlist</button>
+            <br>
+            <br>
         </div>
     </div>
 </div>

@@ -2,31 +2,31 @@
     <div class="card y-2 mt-4 bg-dark" style="width: 74rem;">
         <div class="card-header">
             <h3 style="text-align:center" class="card-title text-white">Statistiques</h3>
-          </div>
-
-
+        </div>
         <div class="card-body">
-          <div class="col-2 mx-auto">
-          <select #duree class="form-select" name="choice-button" id="choice-button" placeholder="Language">
-            <option value="short_term">4 semaines</option>
-            <option value="medium_term">6 mois</option>
-            <option value="long_term">Depuis toujours</option>
-          </select>
-          <br>
-          <button class="btn btn-secondary animation-on-hover mx-5" type="button" value=“Envoyer” (click)="statistiquesSons(duree.value);">Valider</button>
-          <br><br>
-          </div>
-                <!-- Top artistes de l'utilisateur -->
-                <h5 class='text-white'>Top Titres :<span class="tabulation"></span>Top Artistes :</h5>
-                <div class="inline-div">
+            <div class="col-2 mx-auto">
+              <!-- Choisir la durée pour les statistiques-->
+                <select #duree class="form-select" name="choice-button" id="choice-button" placeholder="Language">
+                    <option value="short_term">4 semaines</option>
+                    <option value="medium_term">6 mois</option>
+                    <option value="long_term">Depuis toujours</option>
+                </select>
+                <br>
+                <button class="btn btn-secondary animation-on-hover mx-5" type="button" value=“Envoyer” (click)="statistiquesSons(duree.value);">Valider</button>
+                <br>
+                <br>
+            </div>
+            <!-- Top artistes de l'utilisateur -->
+            <h5 class='text-white'>Top Titres : <span class="tabulation"></span>Top Artistes : </h5>
+            <!-- Affichage top titres -->
+            <div class="inline-div">
                 <textarea name="message" class="textarea" cols="30" rows="14" disabled="1" style="background-color:#aedd94;" class="inline-txtarea"></textarea>
-                </div>
-
-                <span class="vertical-line"></span>
-                <div class="inline-div">
-                <textarea name="message" class="textarea" cols="30" rows="14" disabled="1" style="background-color:#aedd94;"  class="inline-txtarea"></textarea>
-                </div>
+            </div>
+            <span class="vertical-line"></span>
+            <!-- Affichage top artistes -->
+            <div class="inline-div">
+                <textarea name="message" class="textarea" cols="30" rows="14" disabled="1" style="background-color:#aedd94;" class="inline-txtarea"></textarea>
+            </div>
         </div>
     </div>
-
 </div>

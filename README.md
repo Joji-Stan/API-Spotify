@@ -4,5 +4,5 @@ Easify est un site crée à l'occasion de deux modules du semestre 6 de notre 3�
 # Groupe :
 
 AUGEREAU Bastien  
-LOCHAIN Alexandre  
+LOCHAIN Alexandre
 MOQUET Alexandre
