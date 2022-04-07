@@ -108,7 +108,7 @@ export class PlaylistComponent implements OnInit {
       },
       contentType: "application/json",
       success: function (result) {
-        console.log("Ca marche");
+        // console.log("Ca marche");
       },
       error: function () {
       },
