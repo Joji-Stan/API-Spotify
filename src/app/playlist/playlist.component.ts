@@ -91,7 +91,7 @@ export class PlaylistComponent implements OnInit {
   // Fonction permettant de créer une playlist avec la méthode POST
   creePlaylist(): void {
     var jsonData = {
-      name: "Création playlist",
+      name: "Crée playlist",
       public: false,
     };
     let user_id;
@@ -108,6 +108,14 @@ export class PlaylistComponent implements OnInit {
       },
       contentType: "application/json",
       success: function (result) {
+        /* playlist_id = response.json()['id']
+        endpoint_url = f"https://api.spotify.com/v1/playlists/{playlist_id}/// tracks"
+        request_body = json.dumps({
+          "uris" : uris
+        })
+         
+result = requests.post(url = endpoint_url, data = request_body, 
+   */
         // console.log("Ca marche");
       },
       error: function () {
