@@ -11,9 +11,9 @@ import { MenuComponent } from './menu/menu.component';
 import { StatistiquesComponent } from './statistiques/statistiques.component';
 import { RechercheComponent } from './recherche/recherche.component';
 import { AproposComponent } from './apropos/apropos.component';
-import { SpotifyComponent } from './spotify/spotify.component';
 import { ConcertsComponent } from './concerts/concerts.component';
 import { PlaylistComponent } from './playlist/playlist.component';
+import { ParolesComponent } from './paroles/paroles.component';
 
 @NgModule({
   declarations: [
@@ -24,14 +24,14 @@ import { PlaylistComponent } from './playlist/playlist.component';
     StatistiquesComponent,
     RechercheComponent,
     AproposComponent,
-    SpotifyComponent,
     ConcertsComponent,
-    PlaylistComponent
+    PlaylistComponent,
+    ParolesComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

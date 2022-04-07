@@ -1,0 +1,20 @@
+<div class="col-lg-2 mx-2">
+    <div class="card text-center y-1 mt-0 bg-dark" style="width: 74rem;">
+      <div class="card-header">
+          <h2 class="card-title text-white">Paroles</h2>
+      </div>
+      <!--  Saisir l'artiste et le titre de la chanson pour récuperer ses valeurs pour ensuite afficher les paroles  -->
+        <h4 class='text-white'> Artiste : <span class="tabulation"></span> Titre : </h4>
+        <div class="inline-div">
+      <input #artiste class="inline-input"  id="artist" type="text" name="" value="" style="background-color:#aedd94;">
+      <input #title class="inline-input" id="title" type="text" name="" value="" style="background-color:#aedd94;">
+      <br><br>
+      <!-- Bouton pour afficher les paroles de la chanson en question  -->
+      <button class="btn btn-secondary animation-on-hover mx-5" type="button" value=Rechercher (click)="paroleSons(artiste.value,title.value);">Rechercher</button>
+      </div>
+      <br>
+      <!-- Bloc pour l'affichage des paroles -->  
+      <div id="output" class="card text-center y-1 mt-0 bg-dark text-white" style="width: 74rem;">  </div>
+
+    </div>
+</div>

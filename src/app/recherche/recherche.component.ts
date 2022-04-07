@@ -46,6 +46,8 @@ export class RechercheComponent implements OnInit {
         console.log("Something went wrong:", err.message);
       });
   }
+
+  // Fonction permettant de rechercher des sons
   rechercheSons(artiste: string, titre: string): void {
 
     $.ajax({
@@ -70,6 +72,7 @@ export class RechercheComponent implements OnInit {
             }
           );
 
+          // Affichage des sons avec des iframe
           let src_str = `https://open.spotify.com/embed/track/${id}`;
           let iframe = `<div class='song'><iframe src=${src_str} frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe></div>`;
           let parent_div = $("#song_" + count);

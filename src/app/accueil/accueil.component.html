@@ -3,27 +3,46 @@
     <div class="row text-center py-5 bg-dark vh-100">
         <h1 style="text-align:center" class=" text-white"> Easify. </h1>
         <div class="col-12 mx-1 my-1 bg-dark">
+          <!-- Affichage bouton se connecter à Spotify -->
             <button (click)=loginSpotify(); type="button" class="btn btn-success bg-sucess btn-lg w-auto me-3"> Se connecter</button>
+            <!-- Affichage bouton pour se déconnecter de Spotify -->
             <button (click)=logoutSpotify(); type="button" class="btn btn-danger bg-sucess btn-lg w-auto me-3"> Se déconnecter</button>
         </div>
     </div>
 </div>
 <div class="row text-center py-5 bg-dark vh-100">
+
+  <!-- Affichage page Statistiques -->
     <form *ngIf="isVisibleStatistiques">
         <app-statistiques [token]="token" [isConnected]="isConnected"></app-statistiques>
     </form>
+
+    <!-- Affichage page Paroles -->
+    <form *ngIf="isVisibleParoles">
+        <app-paroles></app-paroles>
+    </form>
+
+    <!-- Affichage page Concerts -->
     <form *ngIf="isVisibleConcerts">
         <app-concerts></app-concerts>
     </form>
+
+    <!-- Affichage page Playlist -->
     <form *ngIf="isVisiblePlaylist">
         <app-playlist [token]="token" [isConnected]="isConnected"></app-playlist>
     </form>
+
+    <!-- Affichage page Contact -->
     <form *ngIf="isVisibleContact">
         <app-contact></app-contact>
     </form>
+
+    <!-- Affichage page A propos -->
     <form *ngIf="isVisibleAPropos">
         <app-apropos></app-apropos>
     </form>
+
+    <!-- Affichage page Recherche -->
     <form *ngIf="isVisibleRecherche">
         <app-recherche [token]="token" [isConnected]="isConnected"></app-recherche>
     </form>

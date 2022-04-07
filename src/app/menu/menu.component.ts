@@ -12,49 +12,53 @@ import {
   styleUrls: ["./menu.component.css"],
 })
 export class MenuComponent implements OnInit {
-  //Déclaration des variables
+  // Déclaration des variables pour activer les differents composants
   activeAccueil: boolean;
   activePlaylist: boolean;
   activeRecherche: boolean;
   activeStatistiques: boolean;
+  activeParoles: boolean;
   activeConcerts: boolean;
   activeContact: boolean;
   activeAPropos: boolean;
   isConnected: boolean;
 
-  //Envoie d'une information
   @Output() changementAccueil = new EventEmitter();
 
   constructor() {}
 
-  //Initialisation des variables
+  //  Initialisation des variables
   ngOnInit(): void {
     this.activeAccueil = true;
     this.isConnected = false;
     this.activePlaylist = false;
     this.activeRecherche = false;
     this.activeStatistiques = false;
+    this.activeParoles = false;
     this.activeConcerts = false;
     this.activeContact = false;
     this.activeAPropos = false;
   }
 
-  //Fonction permettant de mettre en évidence la session active au niveau du menu
+  // Permet de naviguer dans le mnu
   changementMenu(dir: string): void {
     switch (dir) {
       case "accueil":
         this.activerAccueil_Event();
         break;
-      case "recherche":
+      case "statistiques":
         this.activerStatistiques_Event();
         break;
       case "playlist":
         this.activerplaylist_Event();
         break;
-      case "lyrics":
+      case "recherche":
         this.activerRecherche_Event();
         break;
-      case "concert":
+      case "paroles":
+          this.activerParoles_Event();
+        break;
+      case "concerts":
         this.activerConcerts_Event();
         break;
       case "contact":
@@ -68,166 +72,208 @@ export class MenuComponent implements OnInit {
     }
   }
 
-  //Lance l'affichage de la section Accueil
+  // Affichage de la section Accueil
   activerAccueil(): void {
     this.activeAccueil = true;
     this.activePlaylist = false;
     this.activeRecherche = false;
     this.activeStatistiques = false;
+    this.activeParoles = false;
     this.activeConcerts = false;
     this.activeContact = false;
     this.activeAPropos = false;
     this.changementAccueil.emit("accueil");
   }
 
-  //Activation de la section Accueil dans le menu
+  // Activation de la section Accueil
   activerAccueil_Event(): void {
     this.activeAccueil = true;
     this.activePlaylist = false;
     this.activeRecherche = false;
     this.activeStatistiques = false;
+    this.activeParoles = false;
     this.activeConcerts = false;
     this.activeContact = false;
     this.activeAPropos = false;
   }
 
+  // Affichage de la section Playlist
   activerPlaylist(): void {
     this.activeAccueil = false;
     this.activePlaylist = true;
     this.activeRecherche = false;
     this.activeStatistiques = false;
+    this.activeParoles = false;
     this.activeConcerts = false;
     this.activeContact = false;
     this.activeAPropos = false;
     this.changementAccueil.emit("playlist");
   }
 
-  //Activation de la section Spotyfy-YouTube dans le menu
+  // Activation de la section Playlist
   activerplaylist_Event(): void {
     this.activeAccueil = false;
     this.activePlaylist = true;
     this.activeRecherche = false;
     this.activeStatistiques = false;
+    this.activeParoles = false;
     this.activeConcerts = false;
     this.activeContact = false;
     this.activeAPropos = false;
   }
 
-  //Lance l'affichage de la section Lyrics
+  // Affichage de la section Recherche
   activerRecherche(): void {
     this.activeAccueil = false;
     this.activePlaylist = false;
     this.activeRecherche = true;
     this.activeStatistiques = false;
+    this.activeParoles = false;
     this.activeConcerts = false;
     this.activeContact = false;
     this.activeAPropos = false;
-    this.changementAccueil.emit("lyrics");
+    this.changementAccueil.emit("recherche");
   }
 
-  //Activation de la section Lyrics dans le menu
+  // Activation de la section Recherche
   activerRecherche_Event(): void {
     this.activeAccueil = false;
     this.activePlaylist = false;
     this.activeRecherche = true;
     this.activeStatistiques = false;
+    this.activeParoles = false;
     this.activeConcerts = false;
     this.activeContact = false;
     this.activeAPropos = false;
   }
 
-  //Lance l'affichage de la section Infos
+  // Affichage de la section Paroles
+  activerParoles(): void {
+    this.activeAccueil = false;
+    this.activePlaylist = false;
+    this.activeRecherche = false;
+    this.activeStatistiques = false;
+    this.activeParoles = true;
+    this.activeConcerts = false;
+    this.activeContact = false;
+    this.activeAPropos = false;
+    this.changementAccueil.emit("paroles");
+
+  }
+
+  // Activation de la section Paroles
+  activerParoles_Event(): void {
+    this.activeAccueil = false;
+    this.activePlaylist = false;
+    this.activeRecherche = false;
+    this.activeStatistiques = false;
+    this.activeParoles = true;
+    this.activeConcerts = false;
+    this.activeContact = false;
+    this.activeAPropos = false;
+  }
+
+  // Affichage de la section Statistiques
   activerStatistiques(): void {
     this.activeAccueil = false;
     this.activePlaylist = false;
     this.activeRecherche = false;
     this.activeStatistiques = true;
+    this.activeParoles = false;
     this.activeConcerts = false;
     this.activeContact = false;
     this.activeAPropos = false;
     this.changementAccueil.emit("infos");
   }
 
-  //Activation de la section Infos dans le menu
+  // Activation de la section Statistiques
   activerStatistiques_Event(): void {
     this.activeAccueil = false;
     this.activePlaylist = false;
     this.activeRecherche = false;
     this.activeStatistiques = true;
+    this.activeParoles = false;
     this.activeConcerts = false;
     this.activeContact = false;
     this.activeAPropos = false;
   }
 
-  //Lance l'affichage de la section Concert
+  // Affichage de la section Concerts
   activerConcerts(): void {
     this.activeAccueil = false;
     this.activePlaylist = false;
     this.activeRecherche = false;
     this.activeStatistiques = false;
+    this.activeParoles = false;
     this.activeConcerts = true;
     this.activeContact = false;
     this.activeAPropos = false;
-    this.changementAccueil.emit("concert");
+    this.changementAccueil.emit("concerts");
   }
 
-  //Activation de la section Concert dans le menu
+  // Activation de la section Concerts
   activerConcerts_Event(): void {
     this.activeAccueil = false;
     this.activePlaylist = false;
     this.activeRecherche = false;
     this.activeStatistiques = false;
+    this.activeParoles = false;
     this.activeConcerts = true;
     this.activeContact = false;
     this.activeAPropos = false;
   }
 
-  //Lance l'affichage de la section Contact
+  // Affichage de la section Contact
   activerContact(): void {
     this.activeAccueil = false;
     this.activePlaylist = false;
     this.activeRecherche = false;
     this.activeStatistiques = false;
+    this.activeParoles = false;
     this.activeConcerts = false;
     this.activeContact = true;
     this.activeAPropos = false;
     this.changementAccueil.emit("contact");
   }
 
-  //Activation de la section Contact dans le menu
+  // Activation de la section Contact
   activerContact_Event(): void {
     this.activeAccueil = false;
     this.activePlaylist = false;
     this.activeRecherche = false;
     this.activeStatistiques = false;
+    this.activeParoles = false;
     this.activeConcerts = false;
     this.activeContact = true;
     this.activeAPropos = false;
   }
 
-  //Lance l'affichage de la section A propos
+  // Affichage de la section A propos
   activerAPropos(): void {
     this.activeAccueil = false;
     this.activePlaylist = false;
     this.activeRecherche = false;
     this.activeStatistiques = false;
+    this.activeParoles = false;
     this.activeConcerts = false;
     this.activeContact = false;
     this.activeAPropos = true;
     this.changementAccueil.emit("apropos");
   }
 
-  //Activation de la section A propos dans le menu
+  // Activation de la section A propos
   activerAPropos_Event(): void {
     this.activeAccueil = false;
     this.activePlaylist = false;
     this.activeRecherche = false;
     this.activeStatistiques = false;
+    this.activeParoles = false;
     this.activeConcerts = false;
     this.activeContact = false;
     this.activeAPropos = true;
   }
 
+  // Activation de isConnected
   activerConnected_Event(): void {
     this.isConnected = true;
   }

@@ -1,3 +1,4 @@
+// Interface Artiste, Track
 export interface ArtistModel {
     title: string,
     image: string,

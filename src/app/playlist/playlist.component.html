@@ -3,26 +3,21 @@
         <div class="card-header">
             <h2 class="card-title text-white">Playlist</h2>
         </div>
-        <!-- Formulaire de contact -->
         <div class="card-body">
-            <!-- Utilisation de Formcarry pour traiter les messages -->
-            <!-- Nom de l'utilisateur -->
-            <h4 class='text-white'>
-                <div id="nom_user"></div>
-            </h4>
+          <!-- Saisie de l'artiste, du titre, du genre musical et le nombre de son qu'on veut générer -->
             <h4 class='text-white'>ㅤㅤㅤArtiste :ㅤㅤㅤㅤㅤㅤㅤTitres :ㅤㅤㅤㅤㅤㅤㅤGenre :ㅤㅤㅤㅤTaille :</h4>
             <div class="inline-div">
                 <input #artiste class="inline-input" type="text" name="name" id="name" style="background-color:#aedd94;">
                 <input #titre class="inline-input" type="text" name="titres" id="titres" style="background-color:#aedd94;">
                 <input #genre class="inline-input" type="text" name="genre" id="genre" style="background-color:#aedd94;">
-                <input #taille class="inline-input" type="number" name="taille" id="taille" min="1" max="50" style="background-color:#aedd94;">
+                <input #taille class="inline-input" type="number" name="taille" id="taille" min="1" max="21" style="background-color:#aedd94;">
             </div>
             <br>
-            <!-- Bouton pour envoyer le formulaire -->
-            <button class="btn btn-secondary animation-on-hover mx-5" type="button" value=“Envoyer” (click)="genereSons(artiste.value,titre.value,genre.value);">Generer</button>
+            <!-- Bouton pour generer les sons -->
+            <button class="btn btn-secondary animation-on-hover mx-5" type="button" value=“Envoyer” (click)="genereSons(artiste.value,titre.value,genre.value,taille.value);">Generer</button>
             <br>
             <br>
-            <!-- Relié au javascript permettant de charger les résultats de la requête -->
+            <!-- Afficher les sons de la recherche-->
             <div class="container">
                 <div class="row">
                     <div id="song_1" class="col"></div>
@@ -39,10 +34,31 @@
                     <div id="song_8" class="col"></div>
                     <div id="song_9" class="col"></div>
                 </div>
+                <div class="row">
+                    <div id="song_10" class="col"></div>
+                    <div id="song_11" class="col"></div>
+                    <div id="song_12" class="col"></div>
+                </div>
+                <div class="row">
+                    <div id="song_13" class="col"></div>
+                    <div id="song_14" class="col"></div>
+                    <div id="song_15" class="col"></div>
+                </div>
+                <div class="row">
+                    <div id="song_16" class="col"></div>
+                    <div id="song_17" class="col"></div>
+                    <div id="song_18" class="col"></div>
+                </div>
+                <div class="row">
+                    <div id="song_19" class="col"></div>
+                    <div id="song_20" class="col"></div>
+                    <div id="song_21" class="col"></div>
+                </div>
             </div>
             <br>
             <br>
-            <button class="btn btn-secondary animation-on-hover mx-5" type="button" value=“Envoyer” (click)="creePlaylist();">Crée Playlist</button>
+            <!-- Bouton pour créer la playlist -->
+            <button class="btn btn-secondary animation-on-hover mx-5" type="button" value=“Envoyer” (click)="creePlaylist();">Creer Playlist</button>
             <br>
             <br>
         </div>

@@ -25,6 +25,7 @@ let spotify = new SpotifyWebApi();
   styleUrls: ["./playlist.component.css"],
 })
 export class PlaylistComponent implements OnInit {
+  //  On récupére le token
   @Input() token: string;
   @Input() isConnected: boolean;
 
@@ -49,7 +50,9 @@ export class PlaylistComponent implements OnInit {
         console.log("Something went wrong:", err.message);
       });
   }
-  genereSons(artiste: string, titre: string, genre: string): void {
+
+  // Fonction qui permet de generer des sons pour ensuite les mettre dans la playlist
+  genereSons(artiste: string, titre: string, genre: string, taille :string): void {
     $.ajax({
       url: `https://api.spotify.com/v1/search?q=${artiste}+${titre}&genre=${genre}&type=track`,
       type: "GET",
@@ -59,11 +62,12 @@ export class PlaylistComponent implements OnInit {
       success: function (data) {
         let num_of_tracks = data.tracks.items.length;
         let count = 1;
-        const max_songs = 10;
+        let tailleint = parseInt(taille);
+        const max_songs = tailleint+1;
         while (count < max_songs && count < num_of_tracks) {
 
           var id = data.tracks.items[count].id;
-        
+
           spotify.getTrack(id).then(
             function (data) {
               console.log(data);
@@ -73,6 +77,7 @@ export class PlaylistComponent implements OnInit {
             }
           );
 
+          // Affichage des sons avec des iframe
           let src_str = `https://open.spotify.com/embed/track/${id}`;
           let iframe = `<div class='song'><iframe src=${src_str} frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe></div>`;
           let parent_div = $("#song_" + count);
@@ -82,6 +87,8 @@ export class PlaylistComponent implements OnInit {
       },
     });
   }
+
+  // Fonction permettant de créer une playlist avec la méthode POST
   creePlaylist(): void {
     var jsonData = {
       name: "yeees",

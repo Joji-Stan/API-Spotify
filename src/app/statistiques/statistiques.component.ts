@@ -51,6 +51,7 @@ export class StatistiquesComponent implements OnInit {
   }
 
   statistiquesSons(duree: string): void {
+    // Pour 4 semaines, prend les top artist et top titres
     if (duree == "short_term") {
       this.service.getTopArtist4Weeks().subscribe((data: any) => {
         for (let i = 0; i < data.items.length; i++) {
@@ -75,6 +76,7 @@ export class StatistiquesComponent implements OnInit {
         }
       });
     }
+    // Pour 6 mois, prend les top artist et top titres
     if (duree == "medium_term") {
       this.service.getTopArtist6Months().subscribe((data: any) => {
         for (let i = 0; i < data.items.length; i++) {
@@ -100,6 +102,7 @@ export class StatistiquesComponent implements OnInit {
       });
     }
 
+    // Pour depuis toujours, prend les top artist et top titres
     if (duree == "long_term") {
       this.service.getTopArtistAllTime().subscribe((data: any) => {
         for (let i = 0; i < data.items.length; i++) {

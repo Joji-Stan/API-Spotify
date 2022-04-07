@@ -3,24 +3,19 @@
         <div class="card-header">
             <h2 class="card-title text-white">Recherche</h2>
         </div>
-        <!-- Formulaire de contact -->
+        <!-- Saisie de l'artiste et du titre -->
         <div class="card-body">
-            <!-- Utilisation de Formcarry pour traiter les messages -->
-            <!-- Nom de l'utilisateur -->
-            <h4 class='text-white'>
-                <div id="nom_user"></div>
-            </h4>
             <h4 class='text-white'> Artiste : <span class="tabulation"></span> Titres : </h4>
             <div class="inline-div">
                 <input #artiste class="inline-input" type="text" name="name" id="name" style="background-color:#aedd94;">
                 <input #titre class="inline-input" type="text" name="titres" id="titres" style="background-color:#aedd94;">
             </div>
             <br>
-            <!-- Bouton pour envoyer le formulaire -->
-            <button class="btn btn-secondary animation-on-hover mx-5" type="button" value=“Envoyer” (click)="rechercheSons(artiste.value,titre.value);">Rechercher</button>
+            <!-- Bouton pour rechercher des sons -->
+            <button class="btn btn-secondary animation-on-hover mx-5" type="button" value=Rechercher (click)="rechercheSons(artiste.value,titre.value);">Rechercher</button>
             <br>
             <br>
-            <!-- Relié au javascript permettant de charger les résultats de la requête -->
+            <!-- Affichage des sons -->
             <div class="container">
                 <div class="row">
                     <div id="song_1" class="col"></div>
