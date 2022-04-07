@@ -91,7 +91,7 @@ export class PlaylistComponent implements OnInit {
   // Fonction permettant de créer une playlist avec la méthode POST
   creePlaylist(): void {
     var jsonData = {
-      name: "yeees",
+      name: "Création playlist",
       public: false,
     };
     let user_id;
@@ -108,10 +108,9 @@ export class PlaylistComponent implements OnInit {
       },
       contentType: "application/json",
       success: function (result) {
-        console.log("Woo! :)");
+        console.log("Ca marche");
       },
       error: function () {
-        console.log("Error! :(");
       },
     });
   }
